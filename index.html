@@ -26,11 +26,23 @@
         }
     </script>
 <style>
-        body { font-family: 'Manrope', sans-serif; }
+        body { font-family: 'Manrope', sans-serif; scroll-behavior: smooth; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         .process-line {
             background: repeating-linear-gradient(90deg, #660fbd, #660fbd 10px, transparent 10px, transparent 20px);
         }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal-on-scroll.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-100 { transition-delay: 100ms; }
+        .reveal-delay-200 { transition-delay: 200ms; }
+        .reveal-delay-300 { transition-delay: 300ms; }
     </style>
 </head>
 <body class="bg-background-light text-slate-900 font-display">
@@ -96,7 +108,7 @@
 <section class="relative py-20 overflow-hidden bg-white">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid lg:grid-cols-2 gap-12 items-center">
-<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-6 reveal-on-scroll">
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider w-fit">
 <span class="material-symbols-outlined text-sm">location_on</span>
                         For Accounting Firms in Singapore
@@ -108,10 +120,10 @@
                         We deliver refreshed designs, SEO implementation, and blog content packages—all in 3 days after receiving your information. From $697.
                     </p>
 <div class="flex flex-wrap gap-4 pt-2">
-<button class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded font-bold text-lg transition-all shadow-lg shadow-primary/20">
+<button class="bg-primary hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-lg shadow-primary/20">
                             View Pricing
                         </button>
-<button class="bg-slate-100 hover:bg-slate-200 text-slate-900 px-8 py-4 rounded font-bold text-lg transition-all border border-slate-200">
+<button class="bg-slate-100 hover:bg-slate-200 hover:scale-[1.02] active:scale-[0.98] text-slate-900 px-8 py-4 rounded-lg font-bold text-lg transition-all border border-slate-200">
                             Schedule Consultation
                         </button>
 </div>
@@ -120,9 +132,9 @@
                         3-Day Development Window: Launch in 72 hours from kickoff.
                     </p>
 </div>
-<div class="relative">
-<div class="aspect-video bg-slate-100 rounded-xl overflow-hidden shadow-2xl border-4 border-white" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBdqg6VRa9Cd-YuYRpTk3_Dh0D3gWKlKZXTkMw-gDh6Eq2YnhRtH9wOs5aZKTxvLaJ37GZYqXfp2XBIRGKgwK7_k0g4J9J3OlVYP_ivyl1DmKVFL0lbupF-wYvPLD7H8311juzZh0s2TPNTAeQabLeNbVdhKUBYMfd1yXdMh72oqCLuYPZDASG_1SmjS0SRGtbXzxE__5fzguEkkMrcNHzzE2AjiS8DYLyQkQ3w3cZmNyi3XKZONHQosmG2JD5k6A9RDKvwlAtMLYJn"); background-size: cover; background-position: center center;'></div>
-<div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl border border-slate-100 flex items-center gap-4">
+<div class="relative reveal-on-scroll reveal-delay-200">
+<div class="aspect-video bg-slate-100 rounded-xl overflow-hidden shadow-2xl border-4 border-white hover:scale-[1.01] transition-transform duration-500" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBdqg6VRa9Cd-YuYRpTk3_Dh0D3gWKlKZXTkMw-gDh6Eq2YnhRtH9wOs5aZKTxvLaJ37GZYqXfp2XBIRGKgwK7_k0g4J9J3OlVYP_ivyl1DmKVFL0lbupF-wYvPLD7H8311juzZh0s2TPNTAeQabLeNbVdhKUBYMfd1yXdMh72oqCLuYPZDASG_1SmjS0SRGtbXzxE__5fzguEkkMrcNHzzE2AjiS8DYLyQkQ3w3cZmNyi3XKZONHQosmG2JD5k6A9RDKvwlAtMLYJn"); background-size: cover; background-position: center center;'></div>
+<div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition-transform cursor-pointer">
 <div class="size-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-600">
 <span class="material-symbols-outlined">verified</span>
 </div>
@@ -138,21 +150,21 @@
 <!-- Stats Bar -->
 <section class="bg-slate-50 border-y border-slate-200 py-10">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="flex flex-col gap-1 border-l-2 border-primary pl-6">
-<span class="text-3xl font-black text-slate-900 tracking-tight">3 Days</span>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-8 reveal-on-scroll">
+<div class="flex flex-col gap-1 border-l-2 border-primary pl-6 hover:pl-8 transition-all cursor-default group">
+<span class="text-3xl font-black text-slate-900 tracking-tight group-hover:text-primary transition-colors">3 Days</span>
 <span class="text-sm font-medium text-slate-500">Dev &amp; Launch</span>
 </div>
-<div class="flex flex-col gap-1 border-l-2 border-primary pl-6">
-<span class="text-3xl font-black text-slate-900 tracking-tight">From $697</span>
+<div class="flex flex-col gap-1 border-l-2 border-primary pl-6 hover:pl-8 transition-all cursor-default group">
+<span class="text-3xl font-black text-slate-900 tracking-tight group-hover:text-primary transition-colors">From $697</span>
 <span class="text-sm font-medium text-slate-500">Exceptional Value</span>
 </div>
-<div class="flex flex-col gap-1 border-l-2 border-primary pl-6">
-<span class="text-3xl font-black text-slate-900 tracking-tight">SEO Expert</span>
+<div class="flex flex-col gap-1 border-l-2 border-primary pl-6 hover:pl-8 transition-all cursor-default group">
+<span class="text-3xl font-black text-slate-900 tracking-tight group-hover:text-primary transition-colors">SEO Expert</span>
 <span class="text-sm font-medium text-slate-500">Agency Experience</span>
 </div>
-<div class="flex flex-col gap-1 border-l-2 border-primary pl-6">
-<span class="text-3xl font-black text-slate-900 tracking-tight">Singapore</span>
+<div class="flex flex-col gap-1 border-l-2 border-primary pl-6 hover:pl-8 transition-all cursor-default group">
+<span class="text-3xl font-black text-slate-900 tracking-tight group-hover:text-primary transition-colors">Singapore</span>
 <span class="text-sm font-medium text-slate-500">Local Presence</span>
 </div>
 </div>
@@ -238,43 +250,43 @@
 <p class="text-slate-600">We handle the technical heavy lifting so you can focus on managing your clients.</p>
 </div>
 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary transition-all bg-slate-50/50">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">palette</span>
+<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary hover:-translate-y-1 hover:shadow-xl transition-all duration-300 bg-slate-50/50 reveal-on-scroll">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform">palette</span>
 <h3 class="text-xl font-bold mb-3">Modern Design</h3>
 <p class="text-sm text-slate-600 leading-relaxed">Sleek, professional interfaces designed specifically for corporate trust.</p>
 </div>
-<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary transition-all bg-slate-50/50">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">troubleshoot</span>
+<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary hover:-translate-y-1 hover:shadow-xl transition-all duration-300 bg-slate-50/50 reveal-on-scroll reveal-delay-100">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform">troubleshoot</span>
 <h3 class="text-xl font-bold mb-3">SEO Audit</h3>
 <p class="text-sm text-slate-600 leading-relaxed">Deep dive into your current performance and technical health.</p>
 </div>
-<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary transition-all bg-slate-50/50">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">bolt</span>
+<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary hover:-translate-y-1 hover:shadow-xl transition-all duration-300 bg-slate-50/50 reveal-on-scroll reveal-delay-200">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform">bolt</span>
 <h3 class="text-xl font-bold mb-3">SEO Implementation</h3>
 <p class="text-sm text-slate-600 leading-relaxed">Full technical setup including schema, meta tags, and site speed.</p>
 </div>
-<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary transition-all bg-slate-50/50">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">key</span>
+<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary hover:-translate-y-1 hover:shadow-xl transition-all duration-300 bg-slate-50/50 reveal-on-scroll reveal-delay-300">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform">key</span>
 <h3 class="text-xl font-bold mb-3">Target Keywords</h3>
 <p class="text-sm text-slate-600 leading-relaxed">Strategic mapping of high-intent search terms for your local area.</p>
 </div>
-<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary transition-all bg-slate-50/50">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">article</span>
+<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary hover:-translate-y-1 hover:shadow-xl transition-all duration-300 bg-slate-50/50 reveal-on-scroll">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform">article</span>
 <h3 class="text-xl font-bold mb-3">Blog Strategy</h3>
 <p class="text-sm text-slate-600 leading-relaxed">Content calendars built to drive authority and organic traffic.</p>
 </div>
-<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary transition-all bg-slate-50/50">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">ads_click</span>
+<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary hover:-translate-y-1 hover:shadow-xl transition-all duration-300 bg-slate-50/50 reveal-on-scroll reveal-delay-100">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform">ads_click</span>
 <h3 class="text-xl font-bold mb-3">High-Converting Pages</h3>
 <p class="text-sm text-slate-600 leading-relaxed">Service pages structured specifically to capture and convert leads.</p>
 </div>
-<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary transition-all bg-slate-50/50">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">support_agent</span>
+<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary hover:-translate-y-1 hover:shadow-xl transition-all duration-300 bg-slate-50/50 reveal-on-scroll reveal-delay-200">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform">support_agent</span>
 <h3 class="text-xl font-bold mb-3">Ongoing Support</h3>
 <p class="text-sm text-slate-600 leading-relaxed">We don't just launch and leave. We are here for every update.</p>
 </div>
-<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary transition-all bg-slate-50/50">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">auto_awesome</span>
+<div class="group p-8 rounded-xl border border-slate-200 hover:border-primary hover:-translate-y-1 hover:shadow-xl transition-all duration-300 bg-slate-50/50 reveal-on-scroll reveal-delay-300">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform">auto_awesome</span>
 <h3 class="text-xl font-bold mb-3">3-Day Turnaround</h3>
 <p class="text-sm text-slate-600 leading-relaxed">The fastest professional development window in Singapore.</p>
 </div>
@@ -527,33 +539,49 @@
 <!-- FAQ Section -->
 <section class="py-24 bg-white" id="faq">
 <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="text-3xl font-black text-center mb-12">Frequently Asked Questions</h2>
 <div class="space-y-4">
-<div class="bg-slate-50 rounded-lg border border-slate-200 p-6">
-<div class="flex justify-between items-center cursor-pointer">
-<h4 class="font-bold">How can you launch in just 3 days?</h4>
-<span class="material-symbols-outlined text-primary">add</span>
+<div class="faq-item bg-slate-50 rounded-xl border border-slate-200 p-6 group cursor-pointer transition-all hover:border-primary/30">
+<div class="flex justify-between items-center">
+<h4 class="font-bold text-slate-800">How can you launch in just 3 days?</h4>
+<span class="material-symbols-outlined text-primary transition-transform duration-300">add</span>
 </div>
-<div class="mt-4 text-sm text-slate-500 leading-relaxed">
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+<p class="pt-4 text-sm text-slate-500 leading-relaxed">
                         We have perfected a framework specifically for accounting firms. By starting with our high-conversion base structures and having your information ready upfront (the pre-steps), our development sprint takes exactly 72 hours.
-                    </div>
-</div>
-<div class="bg-slate-50 rounded-lg border border-slate-200 p-6">
-<div class="flex justify-between items-center cursor-pointer">
-<h4 class="font-bold">Do I own the website after payment?</h4>
-<span class="material-symbols-outlined text-primary">add</span>
+                    </p>
 </div>
 </div>
-<div class="bg-slate-50 rounded-lg border border-slate-200 p-6">
-<div class="flex justify-between items-center cursor-pointer">
-<h4 class="font-bold">Is there a monthly maintenance fee?</h4>
-<span class="material-symbols-outlined text-primary">add</span>
+<div class="faq-item bg-slate-50 rounded-xl border border-slate-200 p-6 group cursor-pointer transition-all hover:border-primary/30">
+<div class="flex justify-between items-center">
+<h4 class="font-bold text-slate-800">Do I own the website after payment?</h4>
+<span class="material-symbols-outlined text-primary transition-transform duration-300">add</span>
+</div>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+<p class="pt-4 text-sm text-slate-500 leading-relaxed">
+                        Yes, you own 100% of the website, domain (if requested), and content. Once the final payment is made, the full digital asset is transferred to your control.
+                    </p>
 </div>
 </div>
-<div class="bg-slate-50 rounded-lg border border-slate-200 p-6">
-<div class="flex justify-between items-center cursor-pointer">
-<h4 class="font-bold">Can you help with local SEO for Singapore?</h4>
-<span class="material-symbols-outlined text-primary">add</span>
+<div class="faq-item bg-slate-50 rounded-xl border border-slate-200 p-6 group cursor-pointer transition-all hover:border-primary/30">
+<div class="flex justify-between items-center">
+<h4 class="font-bold text-slate-800">Is there a monthly maintenance fee?</h4>
+<span class="material-symbols-outlined text-primary transition-transform duration-300">add</span>
+</div>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+<p class="pt-4 text-sm text-slate-500 leading-relaxed">
+                        Our core packages are one-time payments. We offer optional monthly support and SEO growth partnerships if you'd like us to continue managing your technical updates and content strategy.
+                    </p>
+</div>
+</div>
+<div class="faq-item bg-slate-50 rounded-xl border border-slate-200 p-6 group cursor-pointer transition-all hover:border-primary/30">
+<div class="flex justify-between items-center">
+<h4 class="font-bold text-slate-800">Can you help with local SEO for Singapore?</h4>
+<span class="material-symbols-outlined text-primary transition-transform duration-300">add</span>
+</div>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+<p class="pt-4 text-sm text-slate-500 leading-relaxed">
+                        Absolutely. All our builds include local SEO best practices specifically tailored for the Singapore market, including Google Business Profile advice and local keyword mapping.
+                    </p>
 </div>
 </div>
 </div>
@@ -593,6 +621,7 @@
 </div>
 </footer>
 <script>
+    // Mobile Menu Toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const closeMenuButton = document.getElementById('close-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -604,13 +633,49 @@
         document.body.classList.toggle('overflow-hidden');
     };
 
-    mobileMenuButton.addEventListener('click', toggleMenu);
-    closeMenuButton.addEventListener('click', toggleMenu);
-    mobileMenuBackdrop.addEventListener('click', toggleMenu);
+    mobileMenuButton?.addEventListener('click', toggleMenu);
+    closeMenuButton?.addEventListener('click', toggleMenu);
+    mobileMenuBackdrop?.addEventListener('click', toggleMenu);
     mobileMenuLinks.forEach(link => {
         link.addEventListener('click', () => {
             toggleMenu();
         });
     });
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const answer = item.querySelector('.faq-answer');
+            const icon = item.querySelector('.material-symbols-outlined');
+            const isOpen = answer.style.maxHeight;
+
+            // Close other items
+            faqItems.forEach(other => {
+                other.querySelector('.faq-answer').style.maxHeight = null;
+                other.querySelector('.material-symbols-outlined').style.transform = 'rotate(0deg)';
+                other.classList.remove('border-primary');
+            });
+
+            if (!isOpen) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.style.transform = 'rotate(45deg)';
+                item.classList.add('border-primary');
+            }
+        });
+    });
+
+    // Reveal on Scroll
+    const revealItems = document.querySelectorAll('.reveal-on-scroll');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    revealItems.forEach(item => revealObserver.observe(item));
 </script>
 </body></html>
