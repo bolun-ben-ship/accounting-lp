@@ -52,14 +52,45 @@
 <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#integrations">Integrations</a>
 <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#faq">FAQ</a>
 </nav>
-<div class="flex items-center gap-4">
-<button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded font-bold text-sm transition-all">
+<div class="flex items-center gap-2 md:gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded font-bold text-xs sm:text-sm transition-all">
                     Get Started
                 </button>
+<button id="mobile-menu-button" class="md:hidden flex items-center justify-center size-10 text-slate-600 hover:bg-slate-50 rounded-lg transition-colors" aria-label="Open menu">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
 </div>
 </div>
 </div>
 </header>
+<!-- Mobile Navigation Overlay -->
+<div id="mobile-menu" class="fixed inset-0 z-[60] hidden">
+    <div id="mobile-menu-backdrop" class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm transition-opacity"></div>
+    <div class="absolute inset-y-0 right-0 w-full max-w-xs bg-white shadow-xl flex flex-col p-6 transform transition-transform duration-300 ease-in-out">
+        <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center gap-2">
+                <div class="bg-primary size-7 rounded flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-lg" style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 20;">near_me</span>
+                </div>
+                <span class="text-lg font-black tracking-tighter text-slate-900">RightClick<span class="text-primary">:</span>AI</span>
+            </div>
+            <button id="close-menu-button" class="size-10 flex items-center justify-center text-slate-500 hover:text-primary hover:bg-slate-50 rounded-lg" aria-label="Close menu">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-1">
+            <a class="text-lg font-bold text-slate-700 hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-lg transition-all" href="#features">Features</a>
+            <a class="text-lg font-bold text-slate-700 hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-lg transition-all" href="#pricing">Pricing</a>
+            <a class="text-lg font-bold text-slate-700 hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-lg transition-all" href="#integrations">Integrations</a>
+            <a class="text-lg font-bold text-slate-700 hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-lg transition-all" href="#faq">FAQ</a>
+        </nav>
+        <div class="mt-auto pt-8 border-t border-slate-100">
+            <button class="w-full bg-primary hover:bg-primary/90 text-white py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-primary/20">
+                Get Started
+            </button>
+        </div>
+    </div>
+</div>
 <main>
 <!-- Hero Section -->
 <section class="relative py-20 overflow-hidden bg-white">
@@ -561,4 +592,25 @@
 </div>
 </div>
 </footer>
+<script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMenuButton = document.getElementById('close-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+    const mobileMenuLinks = mobileMenu.querySelectorAll('nav a');
+
+    const toggleMenu = () => {
+        mobileMenu.classList.toggle('hidden');
+        document.body.classList.toggle('overflow-hidden');
+    };
+
+    mobileMenuButton.addEventListener('click', toggleMenu);
+    closeMenuButton.addEventListener('click', toggleMenu);
+    mobileMenuBackdrop.addEventListener('click', toggleMenu);
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            toggleMenu();
+        });
+    });
+</script>
 </body></html>
